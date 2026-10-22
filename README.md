@@ -1,49 +1,48 @@
-# Landing Restaurante Base
+# Café Cito Demo
 
-Starter reutilizable para restaurantes, cafeterías y negocios gastronómicos. HTML5, CSS3 y JavaScript Vanilla, sin backend ni dependencias de producción.
+Concepto ficticio de cafetería de especialidad y panadería artesanal, creado desde LandingRestauranteBase. HTML, CSS y JavaScript Vanilla; sin backend, frameworks ni recursos externos.
 
-## Funcionalidades
+## Personalización
 
-Menú dinámico, categorías derivadas del catálogo, destacados (primeros tres disponibles), carrito, cantidades, eliminación, subtotal y total, localStorage, formulario, validaciones, mensaje para WhatsApp y panel móvil responsive.
+- `js/config.js`: identidad, hero, MXN/es-MX, contacto ficticio y clave propia de localStorage.
+- `js/menu-data.js`: 17 productos con precios ficticios entre $42 y $115. Los tres primeros disponibles son las especialidades.
+- `css/theme.css`: paleta crema, café, terracota y salvia; serif Georgia y sans Segoe UI locales. Se carga después del CSS común para aplicar la identidad.
+- `css/styles.css`: composición reutilizable del hero, tarjetas, categorías y responsive.
+- `js/app.js`: motor original intacto.
 
-## Estructura del proyecto
+## Ejecutar y verificar
 
-- index.html: estructura semántica y textos comunes.
-- js/config.js: configuración del negocio, contacto, hero, moneda y WhatsApp.
-- js/menu-data.js: productos y categorías.
-- css/theme.css: identidad visual, fuentes, radios, sombras y fondos hero.
-- css/styles.css: layout, componentes y responsive compartidos.
-- js/app.js: motor funcional reutilizable.
-- assets/images/brand/: logos y favicon.
-- assets/images/hero/: portada y variantes móviles.
-- assets/images/products/: imágenes de productos.
-- docs/: inventario de migración y resultados de pruebas.
-- archive/source-project.zip: respaldo original, excluido de Git; no publicar.
+Desde esta carpeta: `python -m http.server 8017 --bind 127.0.0.1` y abrir http://127.0.0.1:8017.
 
-## Crear un nuevo proyecto
+Con Playwright y Chrome disponibles: `node tests/smoke.cjs`. Si Playwright no está en la resolución de módulos, indicar su ruta mediante PLAYWRIGHT_MODULE o NODE_PATH. No es una dependencia de producción.
 
-Copia esta plantilla o configúrala como GitHub Template Repository y utiliza Use this template. Crea un repositorio independiente por cliente. Personaliza configuración, datos, tema e imágenes sin duplicar lógica funcional.
+Pruebas a 1440, 390 y 375 px: todas las categorías y botones de producto, cantidades, eliminación, subtotal/total, recarga de localStorage, formulario y validaciones, domicilio/recoger, navegación y panel móvil. WhatsApp se intercepta en el navegador: no se envía ningún mensaje. Evidencia en `docs/test-results.json` y `docs/verification/`.
 
-1. En config.js cambia business, hero y contact. Los campos vacíos no se muestran; redes sociales requieren URL HTTPS completa.
-2. Define order.currency y order.locale. Asigna order.storageKey único por cliente para aislar carritos en un mismo origen. No se recuperan carritos del proyecto anterior. Al recargar se toman los precios actuales del catálogo.
-3. En menu-data.js conserva el modelo id, nombre, descripcion, precio, categoria, imagen, disponible. Usa ID únicos y estables, precios numéricos no negativos y categorías con su nombre visible. Las categorías se generan automáticamente; Temporada demuestra una categoría sin disponibilidad.
-4. Personaliza theme.css: colores principales y secundarios, fondos, tipografías, radios y efectos. Las variables detail-color controlan transparencias y overlays del layout. Comprueba contraste después de cambiar la paleta.
-5. Coloca logos en brand/, portada en hero/ y fotos en products/. Actualiza config.images y la ruta imagen de cada producto. El fondo visible del hero usa --hero-image y --hero-image-mobile en theme.css. Cambia favicon en index.html. Los SVG incluidos son placeholders editables.
+## Imágenes pendientes
 
-## Configurar WhatsApp
+Todos los SVG son propios y locales. Las ilustraciones están identificadas como placeholders.
 
-En config.js establece whatsapp.number con código de país y número aceptado por WhatsApp: solo dígitos, sin +, espacios ni guiones. Activa whatsapp.enabled cuando tengas un número real. La demo está desactivada.
+- `assets/images/brand/placeholder.svg`: propuesta tipográfica provisional; sustituir por marca definitiva si se dispone de ella. También se usa como favicon.
+- `assets/images/hero/placeholder.svg`: sustituir por fotografía vertical de mesa con café, pan y luz natural (referencia 640 × 760).
+- `assets/images/products/cafe-placeholder.svg`: fotografía de café caliente.
+- `assets/images/products/frio-placeholder.svg`: fotografía de café frío.
+- `assets/images/products/pan-placeholder.svg`: fotografía de panadería.
+- `assets/images/products/toast-placeholder.svg`: fotografía de desayunos.
+- `assets/images/products/postre-placeholder.svg`: fotografía de postres.
+- `assets/images/products/placeholder.svg`: respaldo genérico.
 
-El flujo valida carrito, nombre, entrega y dirección para domicilio; abre un mensaje preparado y el cliente confirma el envío en WhatsApp. El total incluye solo productos, sin cálculo de envío ni impuestos adicionales.
+Para fotografías individuales, añadir archivos dentro de products/ y actualizar `imagen` en cada producto. Para el hero actualizar config.images.hero. No se descargaron fotos externas.
 
-## Cómo probar
+## Límites de la plantilla detectados
 
-Ejecuta python -m http.server 8000 --bind 127.0.0.1 y abre http://127.0.0.1:8000. Comprueba 1440, 390 y 375 px: categorías, agregar, +/-, eliminar, subtotal, total, recarga, formulario, WhatsApp, panel y navegación. Revisa consola, recursos y scroll horizontal. Consulta docs/test-results.json para el resultado automatizado.
+Los destacados dependen del orden del catálogo, no de un campo configurable; por eso las categorías se muestran según su primera aparición: Café caliente, Panadería, Desayunos, Café frío, Postres. No se cambió el motor para alterar ese comportamiento.
 
-## Cómo publicar
+Algunos textos estructurales (CTA, beneficios, historia y footer) se personalizan en index.html; config.js no dispone de campos propios para todos ellos. La identidad CSS tiene reglas de tema además de variables porque los componentes base fijan mayúsculas, pesos, colores y sombras.
 
-Publica únicamente index.html, css/, js/ y assets/ en un hosting estático como GitHub Pages. No requiere build. Excluye archive/, documentación y pruebas del despliegue. Configura productos reales, contacto, WhatsApp y metadatos HTML antes de publicar; los rastreadores pueden no ejecutar JavaScript. Agrega una URL absoluta og:image cuando exista un dominio. Comprueba rutas, HTTPS y un pedido real desde teléfono.
+El panel móvil conserva el manejo de foco y Escape existente, pero no tiene un confinamiento completo del foco. El total solo incluye productos: no calcula envío ni impuestos adicionales. El catálogo es local y no valida inventario real.
 
-## Antes de iniciar Git
+WhatsApp permanece desactivado, con el número ficticio original. No hay dirección, redes, horarios comerciales ni establecimiento real. Las opciones de entrega son solo una demostración del formulario.
 
-Consulta docs/migration.md. El archivo ZIP conserva material comercial anterior: guarda una copia externa y retíralo de la plantilla al aprobar la migración. Está ignorado por Git, pero un hosting que publique toda la carpeta podría exponerlo. No se ha inicializado Git.
+## Publicación
+
+Servir únicamente index.html, css/, js/ y assets/ en hosting estático. No requiere build. Esta versión es demostrativa y no acepta pedidos reales.

@@ -1,26 +1,26 @@
 /* Personaliza la identidad aquí. Mantén contraste suficiente entre texto y fondo. */
 :root {
-  --color-highlight: #ffcf99;
-  --color-primary: #a34e2d;
-  --color-primary-dark: #803a20;
-  --color-secondary: #3f493d;
-  --color-secondary-dark: #252c24;
-  --color-background: #f7f3ed;
-  --color-background-strong: #e6dccc;
-  --color-surface: #ffffff;
-  --color-text: #292d28;
-  --color-muted: #62665e;
-  --color-whatsapp: #237c40;
-  --color-whatsapp-dark: #185c2e;
-  --color-line: #d9dcd5;
-  --shadow-card: 0 16px 38px rgb(0 0 0 / 10%);
+  --color-highlight: #e9d9c4;
+  --color-primary: #2C211B;
+  --color-primary-dark: #1B1511;
+  --color-secondary: #B8663F;
+  --color-secondary-dark: #1B1511;
+  --color-background: #F4EBDD;
+  --color-background-strong: #e8d8c3;
+  --color-surface: #FFF9F1;
+  --color-text: #29231F;
+  --color-muted: #746A62;
+  --color-whatsapp: #53634e;
+  --color-whatsapp-dark: #3d4b39;
+  --color-line: #d8cbbc;
+  --shadow-card: 0 8px 24px rgb(44 33 27 / 4%);
   --shadow-strong: 0 24px 54px rgb(0 0 0 / 22%);
   --hero-title-size: clamp(2.5rem, 8vw, 4.6rem);
   --font-heading: Georgia, 'Times New Roman', serif;
-  --font-body: Arial, Helvetica, sans-serif;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 26px;
+  --font-body: "Segoe UI", Arial, sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
   --hero-image: url('../assets/images/hero/placeholder.svg');
   --hero-image-mobile: var(--hero-image);
   --detail-color-1: #fff7e7;
@@ -29,35 +29,83 @@
   --detail-color-4: rgba(0, 0, 0, 0.14);
   --detail-color-5: rgba(0, 0, 0, 0.34);
   --detail-color-6: rgba(0, 0, 0, 0.42);
-  --detail-color-7: rgba(20, 184, 166, 0.12);
-  --detail-color-8: rgba(163, 78, 45, 0.08);
-  --detail-color-9: rgba(163, 78, 45, 0.1);
-  --detail-color-10: rgba(163, 78, 45, 0.26);
-  --detail-color-11: rgba(163, 78, 45, 0.42);
+  --detail-color-7: rgba(126, 140, 120, 0.12);
+  --detail-color-8: rgba(184, 102, 63, 0.08);
+  --detail-color-9: rgba(184, 102, 63, 0.1);
+  --detail-color-10: rgba(184, 102, 63, 0.26);
+  --detail-color-11: rgba(184, 102, 63, 0.42);
   --detail-color-12: rgba(255, 250, 241, 0.88);
   --detail-color-13: rgba(255, 255, 255, 0.08);
   --detail-color-14: rgba(255, 255, 255, 0.68);
   --detail-color-15: rgba(255, 255, 255, 0.72);
   --detail-color-16: rgba(255, 255, 255, 0.86);
   --detail-color-17: rgba(255, 255, 255, 0.9);
-  --detail-color-18: rgba(37, 44, 36, 0);
-  --detail-color-19: rgba(37, 44, 36, 0.02);
-  --detail-color-20: rgba(37, 44, 36, 0.04);
-  --detail-color-21: rgba(37, 44, 36, 0.18);
-  --detail-color-22: rgba(37, 44, 36, 0.24);
-  --detail-color-23: rgba(37, 44, 36, 0.38);
-  --detail-color-24: rgba(37, 44, 36, 0.58);
-  --detail-color-25: rgba(37, 44, 36, 0.78);
-  --detail-color-26: rgba(37, 44, 36, 0.82);
-  --detail-color-27: rgba(37, 44, 36, 0.9);
-  --detail-color-28: rgba(37, 44, 36, 0.92);
-  --detail-color-29: rgba(37, 44, 36, 0.96);
-  --detail-color-30: rgba(34, 164, 71, 0.24);
-  --detail-color-31: rgba(34, 164, 71, 0.25);
-  --detail-color-32: rgba(63, 73, 61, 0.1);
-  --detail-color-33: rgba(63, 73, 61, 0.12);
-  --detail-color-34: rgba(63, 73, 61, 0.15);
-  --detail-color-35: rgba(63, 73, 61, 0.16);
-  --detail-color-36: rgba(63, 73, 61, 0.18);
-  --detail-color-37: rgba(63, 73, 61, 0.22);
+  --detail-color-18: rgba(44, 33, 27, 0);
+  --detail-color-19: rgba(44, 33, 27, 0.02);
+  --detail-color-20: rgba(44, 33, 27, 0.04);
+  --detail-color-21: rgba(44, 33, 27, 0.18);
+  --detail-color-22: rgba(44, 33, 27, 0.24);
+  --detail-color-23: rgba(44, 33, 27, 0.38);
+  --detail-color-24: rgba(44, 33, 27, 0.58);
+  --detail-color-25: rgba(44, 33, 27, 0.78);
+  --detail-color-26: rgba(44, 33, 27, 0.82);
+  --detail-color-27: rgba(44, 33, 27, 0.9);
+  --detail-color-28: rgba(44, 33, 27, 0.92);
+  --detail-color-29: rgba(44, 33, 27, 0.96);
+  --detail-color-30: rgba(83, 99, 78, 0.24);
+  --detail-color-31: rgba(83, 99, 78, 0.25);
+  --detail-color-32: rgba(44, 33, 27, 0.1);
+  --detail-color-33: rgba(44, 33, 27, 0.12);
+  --detail-color-34: rgba(44, 33, 27, 0.15);
+  --detail-color-35: rgba(44, 33, 27, 0.16);
+  --detail-color-36: rgba(44, 33, 27, 0.18);
+  --detail-color-37: rgba(44, 33, 27, 0.22);
 }
+
+/* Identidad editorial. Las fuentes son locales y no requieren conexión. */
+body { background: var(--color-background); }
+.site-header { background: var(--color-background); border-color: var(--color-line); }
+.nav-links a { color: var(--color-text); text-transform: none; font-weight: 500; letter-spacing: .02em; }
+.header-whatsapp { background: transparent; color: var(--color-primary); border: 1px solid var(--color-line); box-shadow: none; border-radius: 4px; font-weight: 500; }
+.header-cart { border-radius: 50%; box-shadow: none; }
+.hero { color: var(--color-text); background: var(--color-background); }
+.hero::before { display: none; }
+.hero h1 { color: var(--color-primary); font-size: clamp(3rem, 5.5vw, 5.4rem); line-height: 1.06; letter-spacing: -.055em; text-shadow: none; }
+.hero h1 strong { margin-top: .5em; color: #99502f; font-size: .61em; line-height: 1.18; letter-spacing: -.035em; font-style: italic; }
+.hero p { color: var(--color-muted); font-size: 1rem; line-height: 1.8; text-shadow: none; }
+.hero p.eyebrow { color: var(--color-primary); font-size: .68rem; letter-spacing: .15em; margin: 0 0 1.8rem; }
+.hero-plate { border-radius: 48% 48% 4px 4px; background: var(--color-background-strong); }
+.button, .menu-card button, .whatsapp-button { border-radius: 4px; box-shadow: none; font-weight: 600; }
+.secondary-button { color: var(--color-primary); border: 1px solid var(--color-primary); background: transparent; box-shadow: none; }
+.trust-strip { border-block: 1px solid var(--color-line); background: transparent; }
+.trust-strip strong { color: var(--color-primary); font-weight: 600; text-transform: none; line-height: 1.4; }
+.trust-strip span { font-family: var(--font-heading); color: var(--color-muted); border: 0; }
+.section-title { justify-content: start; text-align: left; }
+.section-title span { display: none; }
+.section-title h2 { color: var(--color-primary); font-weight: 400; text-transform: none; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -.035em; }
+.specialty-card { background: var(--color-surface); box-shadow: none; }
+.specialty-card::after { display: none; }
+.specialty-card div { color: var(--color-text); padding: 1.3rem; }
+.specialty-card h3 { font-weight: 400; text-transform: none; line-height: 1.2; }
+.specialty-card p { color: var(--color-muted); }
+.specialty-card strong { color: #99502f; font-size: 1.1rem; font-weight: 600; }
+.catalog-column { background: transparent; border: 0; box-shadow: none; }
+.cart-panel { background: var(--color-surface); }
+.category-list button { color: var(--color-text); border-radius: 3px; text-transform: none; font-weight: 500; font-size: .85rem; }
+.menu-card { background: var(--color-surface); border-radius: var(--radius-md); }
+.dish-image { background: var(--color-background-strong); border-radius: 3px; }
+.dish-content h3, .cart-item-info h3 { color: var(--color-primary); font-weight: 500; text-transform: none; line-height: 1.25; }
+.dish-category { color: #99502f; font-size: .62rem; letter-spacing: .08em; font-weight: 600; }
+.price { font-size: 1.1rem; font-weight: 600; }
+.cart-line span, .cart-total span, .order-form-section h2, .order-form label, .order-form legend { color: var(--color-primary); font-weight: 500; text-transform: none; }
+.cart-total strong { font-weight: 400; font-family: var(--font-heading); }
+.story-card { border: 0; background: #e8d8c3; box-shadow: none; padding: 2rem; }
+.story-card h2 { color: var(--color-primary); font-size: 2.3rem; text-transform: none; font-weight: 400; margin-bottom: 1rem; }
+.story-card .story-highlight { font-size: .8rem; font-weight: 500; margin-top: 1rem; }
+.site-footer { background: var(--color-primary); }
+.footer-content img { background: var(--color-background); border-radius: 4px; }
+#business-contact { font-size: .8rem; color: #e9d9c4; }
+.mobile-order-toggle { border-radius: 5px; color: var(--color-primary); }
+html { scroll-behavior: auto; }
+*, *::before, *::after { transition: none !important; animation: none !important; }
+.button:hover, .menu-card button:hover, .whatsapp-button:hover, .header-whatsapp:hover, .mobile-order-toggle:hover { transform: none; }

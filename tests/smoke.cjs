@@ -12,21 +12,23 @@ const assert=require('node:assert/strict');
   page.on('pageerror',e=>errors.push(e.message));
   page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
   page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
-  await page.goto('http://127.0.0.1:8000');
+  await page.goto('http://127.0.0.1:8017');
   await page.waitForSelector('.menu-card');
   assert.equal(await page.locator('[data-category]').count(),5);
-  for(const category of ['Entradas','Platos principales','Postres','Bebidas','Temporada']) {
+  for(const category of ['Café caliente','Café frío','Desayunos','Panadería','Postres']) {
    await page.locator(`[data-category="${category}"]`).click();
-   if(category==='Temporada')assert.match(await page.locator('#menu-grid').innerText(),/No hay productos/);
-   else assert.ok(await page.locator('.menu-card').count()>0);
+   assert.ok(await page.locator('.menu-card').count()>=3);
+   for(const button of await page.locator('.menu-card button').all()) await button.click();
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   }
-  await page.locator('[data-category="Entradas"]').click();
+  await page.evaluate(()=>{cartItems.splice(0);saveCartToStorage();renderCart();});
+  await page.locator('[data-category="Café caliente"]').click();
   await page.locator('.menu-card button').first().click();
   if(width<768)await page.locator('#mobile-order-toggle').click();
   await page.locator('[data-action="increase"]').click();
-  assert.equal(await page.evaluate(()=>calculateCartSubtotal()),130);
+  assert.equal(await page.evaluate(()=>calculateCartSubtotal()),136);
   await page.locator('[data-action="decrease"]').click();
-  assert.equal(await page.evaluate(()=>calculateCartSubtotal()),65);
+  assert.equal(await page.evaluate(()=>calculateCartSubtotal()),68);
   assert.equal(await page.locator('#cart-total').innerText(),await page.locator('#cart-subtotal').innerText());
   await page.reload();
   assert.equal(await page.locator('#header-cart-count').innerText(),'1');
@@ -34,6 +36,8 @@ const assert=require('node:assert/strict');
   await page.locator('.whatsapp-button').click();
   assert.match(await page.locator('#order-message').innerText(),/nombre/);
   await page.locator('#customer-name').fill('Ana Prueba');
+  await page.locator('.whatsapp-button').click();
+  assert.match(await page.locator('#order-message').innerText(),/entrega/);
   await page.locator('[value="domicilio"]').check();
   await page.locator('.whatsapp-button').click();
   assert.match(await page.locator('#order-message').innerText(),/dirección/);
@@ -47,7 +51,7 @@ const assert=require('node:assert/strict');
   const url=await page.evaluate(()=>window.testOrderUrl);
   assert.match(url,/^https:\/\/wa.me\/5210000000000\?text=/);
   const message=new URL(url).searchParams.get('text');
-  for(const text of ['Nombre del negocio','Ana Prueba','Calle de prueba 123','Sin ingrediente','Total:'])assert.ok(message.includes(text));
+  for(const text of ['Café Cito','Ana Prueba','Calle de prueba 123','Sin ingrediente','Total:'])assert.ok(message.includes(text));
   await page.locator('[value="recoger"]').check();
   await page.locator('.whatsapp-button').click();
   assert.ok(!decodeURIComponent(await page.evaluate(()=>window.testOrderUrl)).includes('Dirección:'));
@@ -79,5 +83,3 @@ const assert=require('node:assert/strict');
  }
  }finally{await browser.close();fs.writeFileSync('docs/test-results.json',JSON.stringify({date:'2026-10-22',results},null,2));}
 })();
-
-

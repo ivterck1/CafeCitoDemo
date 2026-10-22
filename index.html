@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú y pedidos por WhatsApp</title>
+    <title>Café Cito | Concepto demostrativo</title>
     <meta
       name="description"
-      content="Menú digital y pedidos por WhatsApp."
+      content="Café de especialidad · Pan artesanal. Concepto demostrativo."
     >
-    <meta property="og:title" content="Menú y pedidos">
+    <meta property="og:title" content="Café Cito">
     <meta
       property="og:description"
-      content="Menú digital y pedidos por WhatsApp."
+      content="Café de especialidad · Pan artesanal. Concepto demostrativo."
     >
     <meta property="og:type" content="website">
     <link rel="icon" href="assets/images/brand/placeholder.svg" sizes="any">
-    <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/theme.css">
     <script src="js/config.js" defer></script>
     <script src="js/menu-data.js" defer></script>
     <script src="js/app.js" defer></script>
@@ -27,7 +27,7 @@
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
           <img
             src="assets/images/brand/placeholder.svg"
-            alt="Nombre del negocio"
+            alt="Café Cito"
             width="230"
             height="96"
           >
@@ -41,7 +41,7 @@
         </ul>
 
         <div class="header-actions">
-          <a class="header-whatsapp" href="#pedido">Pedir por WhatsApp</a>
+          <a class="header-whatsapp" href="#pedido">Hacer pedido</a>
           <a class="header-cart" href="#carrito" aria-label="Ver carrito">
             <span class="cart-icon" aria-hidden="true"></span>
             <span class="cart-count" id="header-cart-count">0</span>
@@ -54,22 +54,22 @@
       <section class="hero" id="inicio">
         <div class="hero-content">
           <div class="hero-copy">
-            <p class="eyebrow" data-config="hero.eyebrow">Tu menú, a un mensaje</p>
+            <p class="eyebrow" data-config="hero.eyebrow">CAFÉ DE ESPECIALIDAD · PAN ARTESANAL</p>
             <h1>
-              <span data-config="hero.title">Elige tu próximo antojo.</span>
-              <strong data-config="hero.highlight">Pide a tu manera.</strong>
+              <span data-config="hero.title">CAFÉ SIN PRISA.</span>
+              <strong data-config="hero.highlight">DÍAS CON MÁS SABOR.</strong>
             </h1>
-            <p data-config="hero.description">Explora el menú y arma tu pedido.</p>
+            <p data-config="hero.description">Café preparado al momento, pan recién horneado y desayunos para disfrutar con calma.</p>
             <div class="hero-actions">
-              <a class="button secondary-button" href="#menu">Ver menú</a>
-              <a class="button primary-button" href="#pedido">Pedir por WhatsApp</a>
+              <a class="button primary-button" href="#menu">Ver carta</a>
+              <a class="button secondary-button" href="#pedido">Hacer pedido</a>
             </div>
           </div>
 
-          <figure class="hero-plate" aria-hidden="true">
+          <figure class="hero-plate">
             <img
               src="assets/images/hero/placeholder.svg"
-              alt="Presentación del negocio"
+              alt="Ilustración provisional de una taza de café; fotografía pendiente"
               width="900"
               height="675"
             >
@@ -81,29 +81,29 @@
         <article>
           <span aria-hidden="true">01</span>
           <div>
-            <strong>Menú a tu alcance</strong>
-            <p>Consulta las opciones</p>
+            <strong>Café al momento</strong>
+            <p>Un ritual cotidiano</p>
           </div>
         </article>
         <article>
           <span aria-hidden="true">02</span>
           <div>
-            <strong>Sabor auténtico</strong>
-            <p>Recetas de la casa</p>
+            <strong>Pan artesanal</strong>
+            <p>Capas, miga y mantequilla</p>
           </div>
         </article>
         <article>
           <span aria-hidden="true">03</span>
           <div>
-            <strong>Listo para disfrutar</strong>
-            <p>Ordena y confirma</p>
+            <strong>A tu ritmo</strong>
+            <p>Una pausa para saborear</p>
           </div>
         </article>
         <article>
           <span aria-hidden="true">04</span>
           <div>
-            <strong>Compra segura</strong>
-            <p>Pedido revisado antes de enviar</p>
+            <strong>Hecho para explorar</strong>
+            <p>Concepto de demostración</p>
           </div>
         </article>
       </section>
@@ -111,7 +111,7 @@
       <section class="section specialties-section" id="especialidades" aria-labelledby="specialties-title">
         <div class="section-title">
           <span aria-hidden="true"></span>
-          <h2 id="specialties-title">Especialidades</h2>
+          <h2 id="specialties-title">Favoritos de la casa</h2>
           <span aria-hidden="true"></span>
         </div>
 
@@ -123,13 +123,13 @@
           <div class="catalog-column">
             <div class="section-title compact-title">
               <span aria-hidden="true"></span>
-              <h2 id="menu-title">Menú completo</h2>
+              <h2 id="menu-title">Nuestra carta</h2>
               <span aria-hidden="true"></span>
             </div>
 
             <div class="category-list" role="group" aria-label="Categorías del menú"></div>
 
-            <div class="menu-grid" id="menu-grid" aria-label="Platillos disponibles"></div>
+            <div class="menu-grid" id="menu-grid" aria-label="Productos disponibles"></div>
           </div>
 
           <aside class="cart-panel" id="carrito" aria-labelledby="cart-title">
@@ -183,7 +183,7 @@
                   </label>
                   <label>
                     <input type="radio" name="deliveryType" value="recoger">
-                    Recoger en restaurante
+                    Recoger en cafetería
                   </label>
                 </fieldset>
 
@@ -222,10 +222,10 @@
             height="240"
           >
           <div>
-            <p class="eyebrow">Conoce el negocio</p>
-            <h2 id="story-title">Nuestra historia</h2>
-            <p data-config="business.description">Una propuesta gastronómica para compartir.</p>
-            <p class="story-highlight">Elige, revisa y pide.</p>
+            <p class="eyebrow">La pausa que mereces</p>
+            <h2 id="story-title">Lo simple, bien hecho.</h2>
+            <p data-config="business.description">Café de especialidad y panadería artesanal. Concepto demostrativo.</p>
+            <p class="story-highlight">Concepto demostrativo · Sin establecimiento físico.</p>
           </div>
         </div>
       </section>
@@ -234,10 +234,10 @@
 
     <footer class="site-footer">
       <div class="footer-content">
-        <div><p data-config="business.name">Nombre del negocio</p><div id="business-contact"></div></div>
+        <div><p data-config="business.name">Café Cito</p><p>Café de especialidad · Pan artesanal</p><div id="business-contact"></div></div>
         <img
           src="assets/images/brand/placeholder.svg"
-          alt="Nombre del negocio"
+          alt="Café Cito"
           width="230"
           height="96"
         >
