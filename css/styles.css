@@ -1220,16 +1220,36 @@ h1, h2, h3 { font-family: var(--font-heading); }
 .hero-content { min-height: auto; gap: 2rem; padding-block: 2rem; }
 .hero-plate { display: block; margin: 0; overflow: hidden; }
 .hero-plate img { width: 100%; height: 100%; object-fit: cover; }
-.specialties-grid { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); overflow: visible; }
+.specialties-grid {
+  grid-auto-flow: column;
+  grid-auto-columns: 82vw;
+  grid-template-columns: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+.specialty-card { scroll-snap-align: start; }
 .specialty-card img { height: auto; min-height: 0; aspect-ratio: 640 / 380; object-fit: cover; }
 .specialty-card div { position: static; }
-.category-list { flex-wrap: wrap; overflow: visible; }
+.category-list {
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+.category-list button { flex: 0 0 auto; scroll-snap-align: start; }
+.specialties-grid::-webkit-scrollbar, .category-list::-webkit-scrollbar { height: 3px; }
+.specialties-grid::-webkit-scrollbar-thumb, .category-list::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: var(--radius-sm);
+}
 .quantity-controls button, .remove-item-button { min-height: 44px; }
 section[id], aside[id] { scroll-margin-top: 110px; }
 @media (min-width: 720px) {
  .hero-content { grid-template-columns: 1.08fr 1fr; gap: 3rem; padding-block: 3rem; }
  .hero-plate { height: 560px; }
- .specialties-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+ .specialties-grid { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
 }
 @media (min-width: 1024px) {
  .menu-grid { grid-template-columns: minmax(0, 1fr); }

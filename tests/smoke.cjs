@@ -15,9 +15,36 @@ const assert=require('node:assert/strict');
   await page.goto('http://127.0.0.1:8017');
   await page.waitForSelector('.menu-card');
   assert.equal(await page.locator('[data-category]').count(),5);
+  const strips = await page.evaluate(() => {
+   const featured = document.querySelector('.specialties-grid');
+   const cards = [...featured.children];
+   const categories = document.querySelector('.category-list');
+   const buttons = [...categories.children];
+   const box = featured.getBoundingClientRect();
+   return {
+    featuredOverflow: featured.scrollWidth > featured.clientWidth,
+    nextPeek: cards[1].getBoundingClientRect().left < box.right && cards[1].getBoundingClientRect().right > box.right,
+    snap: getComputedStyle(featured).scrollSnapType,
+    singleCategoryRow: buttons.every(b => b.offsetTop === buttons[0].offsetTop),
+    categoryOverflow: categories.scrollWidth > categories.clientWidth,
+   };
+  });
+  assert.equal(strips.singleCategoryRow,true);
+  if(width<720) {
+   assert.equal(strips.featuredOverflow,true);
+   assert.equal(strips.nextPeek,true);
+   assert.equal(strips.categoryOverflow,true);
+   assert.equal(strips.snap,'x mandatory');
+   await page.locator('.specialties-grid').evaluate(e=>e.scrollTo({left:e.scrollWidth}));
+   await page.waitForTimeout(200);
+   assert.ok(await page.locator('.specialties-grid').evaluate(e=>e.scrollLeft>0));
+   await page.locator('.specialties-grid').evaluate(e=>e.scrollTo({left:0}));
+  } else assert.equal(strips.featuredOverflow,false);
   for(const category of ['Café caliente','Café frío','Desayunos','Panadería','Postres']) {
    await page.locator(`[data-category="${category}"]`).click();
    assert.ok(await page.locator('.menu-card').count()>=3);
+   assert.equal(await page.locator(`[data-category="${category}"]`).getAttribute('aria-pressed'),'true');
+   for(const label of await page.locator('.dish-category').allTextContents()) assert.equal(label,category);
    for(const button of await page.locator('.menu-card button').all()) await button.click();
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   }

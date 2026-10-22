@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "results": [
+    {
+      "width": 1440,
+      "status": "passed",
+      "consoleErrors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "status": "passed",
+      "consoleErrors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "width": 375,
+      "status": "passed",
+      "consoleErrors": [],
+      "horizontalOverflow": false
+    }
+  ]
+}
