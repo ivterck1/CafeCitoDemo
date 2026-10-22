@@ -9,6 +9,7 @@ const assert=require('node:assert/strict');
  for(const width of [1440,390,375]) {
   const page=await browser.newPage({viewport:{width,height:900}});
   const errors=[];
+  await page.addInitScript(()=>{window.open=url=>{window.testOrderUrl=url;};});
   page.on('pageerror',e=>errors.push(e.message));
   page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
   page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
@@ -45,6 +46,11 @@ const assert=require('node:assert/strict');
    assert.ok(await page.locator('.menu-card').count()>=3);
    assert.equal(await page.locator(`[data-category="${category}"]`).getAttribute('aria-pressed'),'true');
    for(const label of await page.locator('.dish-category').allTextContents()) assert.equal(label,category);
+   const imageFile={'Café caliente':'cafe-caliente','Café frío':'cafe-frio','Desayunos':'desayunos','Panadería':'panaderia','Postres':'postres'}[category];
+   for(const img of await page.locator('.dish-image img').all()) {
+    assert.ok((await img.getAttribute('src')).endsWith(imageFile+'.webp'));
+    await img.evaluate(e=>e.decode());
+   }
    for(const button of await page.locator('.menu-card button').all()) await button.click();
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   }
@@ -59,7 +65,9 @@ const assert=require('node:assert/strict');
   assert.equal(await page.locator('#cart-total').innerText(),await page.locator('#cart-subtotal').innerText());
   await page.reload();
   assert.equal(await page.locator('#header-cart-count').innerText(),'1');
+  await page.locator('.cart-item-image').evaluate(async img=>{await img.decode();if(!img.currentSrc.endsWith('/cafe-caliente.webp'))throw Error('Miniatura incorrecta');});
   if(width<768)await page.locator('#mobile-order-toggle').click();
+  await page.screenshot({path:`docs/verification/cart-${width}.png`});
   await page.locator('.whatsapp-button').click();
   assert.match(await page.locator('#order-message').innerText(),/nombre/);
   await page.locator('#customer-name').fill('Ana Prueba');
@@ -70,13 +78,15 @@ const assert=require('node:assert/strict');
   assert.match(await page.locator('#order-message').innerText(),/dirección/);
   await page.locator('#customer-address').fill('Calle de prueba 123');
   await page.locator('#order-notes').fill('Sin ingrediente de ejemplo');
+  await page.evaluate(()=>{siteConfig.whatsapp.enabled=false;});
   await page.locator('.whatsapp-button').click();
   assert.match(await page.locator('#order-message').innerText(),/Configura/);
   // Se intercepta la apertura: no se envía un pedido externo.
   await page.evaluate(()=>{siteConfig.whatsapp.enabled=true;window.open=url=>{window.testOrderUrl=url;};});
   await page.locator('.whatsapp-button').click();
   const url=await page.evaluate(()=>window.testOrderUrl);
-  assert.match(url,/^https:\/\/wa.me\/5210000000000\?text=/);
+  assert.equal(new URL(url).pathname,await page.evaluate(()=>'/'+siteConfig.whatsapp.number));
+  assert.equal(new URL(url).origin,'https://wa.me');
   const message=new URL(url).searchParams.get('text');
   for(const text of ['Café Cito','Ana Prueba','Calle de prueba 123','Sin ingrediente','Total:'])assert.ok(message.includes(text));
   await page.locator('[value="recoger"]').check();
@@ -102,8 +112,9 @@ const assert=require('node:assert/strict');
   assert.match(await page.locator('#menu-grid').innerText(),/Nuevo/i);
   await page.reload();
   await page.waitForSelector('.menu-card');
+  await page.locator('img').evaluateAll(async images=>{for(const img of images){await img.decode();if(!img.naturalWidth)throw Error('Imagen sin cargar');if(img.currentSrc.includes('placeholder'))throw Error('Placeholder visible');}});
   await page.evaluate(()=>window.scrollTo(0,0));
-  await page.screenshot({path:`docs/verification/${width}.png`,fullPage:true});
+  await page.screenshot({path:`docs/verification/assets-${width}.png`,fullPage:true});
   assert.deepEqual(errors,[]);
   results.push({width,status:'passed',consoleErrors:errors,horizontalOverflow:false});
   await page.close();

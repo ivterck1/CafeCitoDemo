@@ -21,7 +21,7 @@
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
-  --hero-image: url('../assets/images/hero/placeholder.svg');
+  --hero-image: url('../assets/images/hero/hero-cafe-cito.webp');
   --hero-image-mobile: var(--hero-image);
   --detail-color-1: #fff7e7;
   --detail-color-2: #fff8eb;
@@ -109,3 +109,6 @@ body { background: var(--color-background); }
 html { scroll-behavior: auto; }
 *, *::before, *::after { transition: none !important; animation: none !important; }
 .button:hover, .menu-card button:hover, .whatsapp-button:hover, .header-whatsapp:hover, .mobile-order-toggle:hover { transform: none; }
+
+/* Encuadre de la fotografía definitiva dentro del hero existente. */
+.hero-plate img { object-position: 78% 58%; }

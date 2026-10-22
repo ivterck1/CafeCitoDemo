@@ -18,20 +18,17 @@ Con Playwright y Chrome disponibles: `node tests/smoke.cjs`. Si Playwright no es
 
 Pruebas a 1440, 390 y 375 px: todas las categorías y botones de producto, cantidades, eliminación, subtotal/total, recarga de localStorage, formulario y validaciones, domicilio/recoger, navegación y panel móvil. WhatsApp se intercepta en el navegador: no se envía ningún mensaje. Evidencia en `docs/test-results.json` y `docs/verification/`.
 
-## Imágenes pendientes
+## Assets definitivos
 
-Todos los SVG son propios y locales. Las ilustraciones están identificadas como placeholders.
+Logo transparente: `assets/images/brand/logo-cafe-cito.png`, optimizado sin pérdida y sin cambiar píxeles. Se utiliza en header, historia, footer y favicon.
 
-- `assets/images/brand/placeholder.svg`: propuesta tipográfica provisional; sustituir por marca definitiva si se dispone de ella. También se usa como favicon.
-- `assets/images/hero/placeholder.svg`: sustituir por fotografía vertical de mesa con café, pan y luz natural (referencia 640 × 760).
-- `assets/images/products/cafe-placeholder.svg`: fotografía de café caliente.
-- `assets/images/products/frio-placeholder.svg`: fotografía de café frío.
-- `assets/images/products/pan-placeholder.svg`: fotografía de panadería.
-- `assets/images/products/toast-placeholder.svg`: fotografía de desayunos.
-- `assets/images/products/postre-placeholder.svg`: fotografía de postres.
-- `assets/images/products/placeholder.svg`: respaldo genérico.
+Hero: `assets/images/hero/hero-cafe-cito.webp` (1672 × 941, 284 KB). Conserva la composición existente con encuadre a la derecha mediante object-position.
 
-Para fotografías individuales, añadir archivos dentro de products/ y actualizar `imagen` en cada producto. Para el hero actualizar config.images.hero. No se descargaron fotos externas.
+Productos: `cafe-caliente.webp`, `cafe-frio.webp`, `desayunos.webp`, `panaderia.webp` y `postres.webp` dentro de `assets/images/products/`, con resolución 1254 × 1254 y pesos de 166–197 KB. Cada categoría comparte su fotografía, incluidos destacados y miniaturas del carrito.
+
+Los PNG de fotografías se conservan como originales. Los SVG anteriores permanecen como respaldo sin referencias visuales activas. No se descargaron imágenes externas. Detalles de compresión en `docs/asset-optimization.json`.
+
+Para fotografías individuales, añadir archivos dentro de products/ y actualizar `imagen` en cada producto. Para el hero actualizar config.images.hero y la referencia de respaldo en theme.css.
 
 ## Límites de la plantilla detectados
 
@@ -41,7 +38,7 @@ Algunos textos estructurales (CTA, beneficios, historia y footer) se personaliza
 
 El panel móvil conserva el manejo de foco y Escape existente, pero no tiene un confinamiento completo del foco. El total solo incluye productos: no calcula envío ni impuestos adicionales. El catálogo es local y no valida inventario real.
 
-WhatsApp permanece desactivado, con el número ficticio original. No hay dirección, redes, horarios comerciales ni establecimiento real. Las opciones de entrega son solo una demostración del formulario.
+WhatsApp utiliza la configuración actual de js/config.js; las pruebas interceptan todas las aperturas externas desde el inicio, incluso cuando está habilitado. No hay dirección, redes, horarios comerciales ni establecimiento real. Las opciones de entrega son solo una demostración del formulario.
 
 ## Publicación
 
