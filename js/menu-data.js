@@ -6,7 +6,7 @@ const menuItems = [
     "descripcion": "Espresso doble y leche sedosa. Nuestro ritual de la casa.",
     "precio": 68,
     "categoria": "Café caliente",
-    "imagen": "assets/images/products/cafe-caliente.webp",
+    "imagen": "assets/images/products/cafe-caliente.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -15,7 +15,7 @@ const menuItems = [
     "descripcion": "Capas delicadas, mantequilla y un horneado dorado.",
     "precio": 52,
     "categoria": "Panadería",
-    "imagen": "assets/images/products/panaderia.webp",
+    "imagen": "assets/images/products/panaderia.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -24,7 +24,7 @@ const menuItems = [
     "descripcion": "Pan de masa madre, aguacate, semillas y limón.",
     "precio": 115,
     "categoria": "Desayunos",
-    "imagen": "assets/images/products/desayunos.webp",
+    "imagen": "assets/images/products/desayunos.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -33,7 +33,7 @@ const menuItems = [
     "descripcion": "Una extracción corta, intensa y aromática.",
     "precio": 42,
     "categoria": "Café caliente",
-    "imagen": "assets/images/products/cafe-caliente.webp",
+    "imagen": "assets/images/products/cafe-caliente.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -42,7 +42,7 @@ const menuItems = [
     "descripcion": "Espresso doble con una fina capa de microespuma.",
     "precio": 62,
     "categoria": "Café caliente",
-    "imagen": "assets/images/products/cafe-caliente.webp",
+    "imagen": "assets/images/products/cafe-caliente.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -51,7 +51,7 @@ const menuItems = [
     "descripcion": "Espresso, leche y un toque suave de vainilla.",
     "precio": 72,
     "categoria": "Café caliente",
-    "imagen": "assets/images/products/cafe-caliente.webp",
+    "imagen": "assets/images/products/cafe-caliente.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -60,7 +60,7 @@ const menuItems = [
     "descripcion": "El equilibrio de espresso, leche y espuma.",
     "precio": 62,
     "categoria": "Café caliente",
-    "imagen": "assets/images/products/cafe-caliente.webp",
+    "imagen": "assets/images/products/cafe-caliente.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -69,7 +69,7 @@ const menuItems = [
     "descripcion": "Extracción lenta en frío, suave y refrescante.",
     "precio": 65,
     "categoria": "Café frío",
-    "imagen": "assets/images/products/cafe-frio.webp",
+    "imagen": "assets/images/products/cafe-frio.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -78,7 +78,7 @@ const menuItems = [
     "descripcion": "Espresso y leche sobre hielo, preparado al momento.",
     "precio": 68,
     "categoria": "Café frío",
-    "imagen": "assets/images/products/cafe-frio.webp",
+    "imagen": "assets/images/products/cafe-frio.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -87,7 +87,7 @@ const menuItems = [
     "descripcion": "Espresso, agua tónica y un toque de cítricos.",
     "precio": 78,
     "categoria": "Café frío",
-    "imagen": "assets/images/products/cafe-frio.webp",
+    "imagen": "assets/images/products/cafe-frio.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -96,7 +96,7 @@ const menuItems = [
     "descripcion": "Croissant artesanal, huevo suave y queso.",
     "precio": 108,
     "categoria": "Desayunos",
-    "imagen": "assets/images/products/desayunos.webp",
+    "imagen": "assets/images/products/desayunos.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -105,7 +105,7 @@ const menuItems = [
     "descripcion": "Fruta de temporada, yogur natural y granola crujiente.",
     "precio": 95,
     "categoria": "Desayunos",
-    "imagen": "assets/images/products/desayunos.webp",
+    "imagen": "assets/images/products/desayunos.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -114,7 +114,7 @@ const menuItems = [
     "descripcion": "Masa suave, canela y glaseado ligero.",
     "precio": 58,
     "categoria": "Panadería",
-    "imagen": "assets/images/products/panaderia.webp",
+    "imagen": "assets/images/products/panaderia.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -123,7 +123,7 @@ const menuItems = [
     "descripcion": "Hojaldre de mantequilla con chocolate oscuro.",
     "precio": 56,
     "categoria": "Panadería",
-    "imagen": "assets/images/products/panaderia.webp",
+    "imagen": "assets/images/products/panaderia.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -132,7 +132,7 @@ const menuItems = [
     "descripcion": "Cremoso, con espresso y base de galleta.",
     "precio": 88,
     "categoria": "Postres",
-    "imagen": "assets/images/products/postres.webp",
+    "imagen": "assets/images/products/postres.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -141,7 +141,7 @@ const menuItems = [
     "descripcion": "Crema de limón y una delicada base crujiente.",
     "precio": 78,
     "categoria": "Postres",
-    "imagen": "assets/images/products/postres.webp",
+    "imagen": "assets/images/products/postres.webp?v=1.0.0",
     "disponible": true
   },
   {
@@ -150,7 +150,7 @@ const menuItems = [
     "descripcion": "Chocolate intenso, centro suave y nuez.",
     "precio": 65,
     "categoria": "Postres",
-    "imagen": "assets/images/products/postres.webp",
+    "imagen": "assets/images/products/postres.webp?v=1.0.0",
     "disponible": true
   }
 ];

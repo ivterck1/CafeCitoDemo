@@ -43,3 +43,13 @@ WhatsApp utiliza la configuración actual de js/config.js; las pruebas intercept
 ## Publicación
 
 Servir únicamente index.html, css/, js/ y assets/ en hosting estático. No requiere build. Esta versión es demostrativa y no acepta pedidos reales.
+
+## Versionado y caché
+
+Versión inicial de recursos: `1.0.0`. Las referencias locales principales de CSS y JavaScript en index.html incluyen `?v=1.0.0`, por ejemplo `css/styles.css?v=1.0.0`.
+
+Cuando se publique una actualización de CSS/JS que deba invalidar caché, incrementar el parámetro `?v=` en las cinco referencias de index.html (styles.css, theme.css, config.js, menu-data.js y app.js), por ejemplo a `?v=1.0.1`. No es necesario modificar el motor app.js para actualizar su URL.
+
+El favicon, logo, hero y fotos de productos también llevan versión en sus referencias de index.html, js/config.js, js/menu-data.js y css/theme.css. Si se sustituye una imagen manteniendo el nombre, incrementar su `?v=` en todos los lugares donde se referencia y versionar también el CSS/JS que contiene esa URL.
+
+Conservar rutas relativas para GitHub Pages, incluido el subdirectorio del repositorio. El parámetro cambia la URL solicitada sin desactivar la caché: los recursos de una misma versión pueden seguir almacenándose normalmente. No se utiliza service worker. Publicar siempre index.html junto con los recursos actualizados.

@@ -12,3 +12,11 @@ Starter reutilizable para landings gastronómicas con menú, carrito y pedidos p
 - Mantener HTML semántico, botones cómodos y código claro sin duplicación.
 - Explicar cambios y verificar el flujo afectado.
 - No implementar cambios grandes fuera del alcance aprobado sin aprobación.
+
+## Versionado y caché
+
+- Usar `?v=1.0.0` como versión inicial en las cinco referencias CSS/JS de index.html.
+- Al publicar cambios CSS/JS que deban invalidar caché, incrementar `?v=` en las cinco referencias principales de index.html. Mantener una misma versión de publicación para esos recursos, sin editar app.js para versionarlo.
+- Favicon, logo, hero y productos también usan `?v=`. Al reemplazar un asset conservando su nombre, incrementar su versión en index.html, config.js, menu-data.js y/o theme.css donde corresponda, y la del CSS/JS que lo referencia.
+- Mantener rutas relativas compatibles con el subdirectorio de GitHub Pages. Verificar recursos sin 404, consola y funcionamiento del carrito.
+- No añadir service workers, frameworks ni mecanismos que desactiven completamente la caché.

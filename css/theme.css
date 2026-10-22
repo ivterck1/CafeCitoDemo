@@ -21,7 +21,7 @@
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
-  --hero-image: url('../assets/images/hero/hero-cafe-cito.webp');
+  --hero-image: url('../assets/images/hero/hero-cafe-cito.webp?v=1.0.0');
   --hero-image-mobile: var(--hero-image);
   --detail-color-1: #fff7e7;
   --detail-color-2: #fff8eb;

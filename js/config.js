@@ -9,5 +9,5 @@ const siteConfig = {
  hero: { eyebrow: "CAFÉ DE ESPECIALIDAD · PAN ARTESANAL", title: "CAFÉ SIN PRISA.", highlight: "DÍAS CON MÁS SABOR.", description: "Café preparado al momento, pan recién horneado y desayunos para disfrutar con calma." },
  contact: { hours: "Concepto demostrativo · Precios ficticios en MXN", address: "", coverage: "", instagram: "", facebook: "" },
  order: { currency: "MXN", locale: "es-MX", storageKey: "cafe-cito-demo:cart:v1" },
- images: { logo: "assets/images/brand/logo-cafe-cito.png", hero: "assets/images/hero/hero-cafe-cito.webp", productPlaceholder: "assets/images/products/cafe-caliente.webp" }
+ images: { logo: "assets/images/brand/logo-cafe-cito.png?v=1.0.0", hero: "assets/images/hero/hero-cafe-cito.webp?v=1.0.0", productPlaceholder: "assets/images/products/cafe-caliente.webp?v=1.0.0" }
 };
