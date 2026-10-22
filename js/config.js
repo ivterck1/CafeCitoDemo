@@ -5,7 +5,7 @@ const siteConfig = {
  // Formato: código de país + número, solo dígitos (sin +, espacios ni guiones).
  // El valor actual es el placeholder heredado, no un contacto real.
  // Después de colocar tu número, cambia enabled a true para habilitar la prueba.
- whatsapp: { number: "5210000000000", enabled: false },
+ whatsapp: { number: "525531148654", enabled: true },
  hero: { eyebrow: "CAFÉ DE ESPECIALIDAD · PAN ARTESANAL", title: "CAFÉ SIN PRISA.", highlight: "DÍAS CON MÁS SABOR.", description: "Café preparado al momento, pan recién horneado y desayunos para disfrutar con calma." },
  contact: { hours: "Concepto demostrativo · Precios ficticios en MXN", address: "", coverage: "", instagram: "", facebook: "" },
  order: { currency: "MXN", locale: "es-MX", storageKey: "cafe-cito-demo:cart:v1" },
